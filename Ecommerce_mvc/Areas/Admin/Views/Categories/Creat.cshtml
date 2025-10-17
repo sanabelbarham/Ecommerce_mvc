@@ -1,0 +1,18 @@
+﻿@using Ecommerce_mvc.Models
+@model Category
+
+<form method="post"  action="/Admin/Categories/Store" >
+
+
+
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Category Name</label>
+        <input type="text"  name="name" value="@Model.Name" class="form-control" id="Name" placeholder="Enter Category Name">
+        <span  class=" text-danger"asp-validation-for="Name"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+
+
