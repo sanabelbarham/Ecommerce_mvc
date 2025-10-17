@@ -16,8 +16,18 @@ namespace Ecommerce_mvc.Areas.Admin.Controllers
             var cats = context.Categories.ToList();
             return View(cats);
         }
+
+
+        public IActionResult Delete(int id)
+        {
+            var cat = context.Categories.Find(id);
+            context.Categories.Remove(cat);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
         public IActionResult Creat()
         {
+
 
             return View(new Category());
         }
@@ -34,34 +44,26 @@ namespace Ecommerce_mvc.Areas.Admin.Controllers
             return RedirectToAction("Index");
 
         }
-        public IActionResult Remove(int id)
+
+        public IActionResult Edit(int id)
         {
-            var cats = context.Categories.Find(id);
-            context.Categories.Remove(cats);
-            context.SaveChanges();
-            return RedirectToAction("Index");
 
-
-        }
-
-
-        public IActionResult Update(int id)
-        {
             var cat = context.Categories.Find(id);
-            return View("Update",cat);
+            return View(cat);
         }
-
-        public IActionResult Edit(Category category)
+        public IActionResult Update(Category category)
         {
             if (!ModelState.IsValid)
             {
-                return View("Update", new Category());
+                return View("Edit", category);
             }
             var cat = context.Categories.Find(category.Id);
-            cat.Name = category.Name;
+            cat.Id = category.Id;
             context.SaveChanges();
             return RedirectToAction("Index");
-          
         }
+   
+
+
     }
 }
