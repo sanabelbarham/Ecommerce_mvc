@@ -10,7 +10,7 @@ namespace Ecommerce_mvc.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Server=.;Database=Ecommerce_mvc;Trusted_Connection=True;TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer("Server=db31219.public.databaseasp.net; Database=db31219; User Id=db31219; Password=G!d4i7#T5+Wt; Encrypt=True; TrustServerCertificate=True; MultipleActiveResultSets=True; ");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

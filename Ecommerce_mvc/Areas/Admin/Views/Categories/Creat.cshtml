@@ -1,9 +1,19 @@
 ﻿@model Category
 
-<form method="post" action="/Admin/Categories/Store">
+@* <form method="post" action="/Admin/Categories/Store">
 <div class="form-group">
     <label for="exampleInputEmail1">Category Name</label>
     <input type="text" name="Name" value="@Model.Name" class="form-control" id="name" placeholder="Enter Name">
 </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+</form> *@
+
+<form asp-action="Store" asp-area="Admin" asp-controller="Categories">
+    <div class="form-group">
+        <label asp-for="Name">Category Name</label>
+        <input asp-for="Name" class="form-control" placeholder="Enter Name">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+
 </form>

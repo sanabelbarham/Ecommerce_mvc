@@ -59,6 +59,7 @@ namespace Ecommerce_mvc.Areas.Admin.Controllers
             }
             var cat = context.Categories.Find(category.Id);
             cat.Id = category.Id;
+            cat.Name = category.Name;
             context.SaveChanges();
             return RedirectToAction("Index");
         }
